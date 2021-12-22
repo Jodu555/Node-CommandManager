@@ -1,7 +1,10 @@
-const { CommandManager: commandManager, Command } = require('./src/index')
+const { CommandManager, Command } = require('./src/index')
 
-const CommandManager = new commandManager.createCommandManager(process.stdin, process.stdout);
+const commandManager = CommandManager.createCommandManager(process.stdin, process.stdout);
 
-CommandManager.registerCommand(new Command('info', 'info', 'Displays the info!', async () => {
-    return 'INFO'
+require('./test2');
+
+commandManager.registerCommand(new Command('info', 'info', 'Displays the info!', async () => {
+    return ['INFO', 'INFO', 'INFO']
 }));
+
