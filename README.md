@@ -12,10 +12,25 @@ Then the end user can type these into the console to trigger certain code
 
 ## Usage
 
-### Create a command manager! 
+### Create a command manager
 
 ```javascript
 const { CommandManager, Command } = require('@jodu555/command-manager');
 //                                              Pass here the standard pipe you want to use
 const commandManager = CommandManager.createCommandManager(process.stdin, process.stdout);
+```
+
+### Create Commands
+
+```javascript
+
+```
+
+### Work with the commandManager in other classes | PUT this before you acces the commandManager anywhere
+
+```javascript
+const { CommandManager, Command } = require('./src/index');
+
+const commandManager = CommandManager.getCommandManager();
+commandManager. //some other function like registerCommand
 ```
