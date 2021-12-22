@@ -6,6 +6,7 @@ require('./test2');
 
 commandManager.registerCommand(new Command('info', 'info', 'Displays the info!', (command, [...args], scope) => {
     //Do Some code here
+    console.log(args);
     return ['INFO', 'INFO', 'INFO']
 }));
 
