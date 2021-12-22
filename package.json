@@ -1,6 +1,6 @@
 {
 	"name": "@jodu555/commandmanager",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A Simple Command Manager API in NodeJS",
 	"main": "index.js",
 	"scripts": {
@@ -12,7 +12,13 @@
 		"type": "git",
 		"url": "git+https://github.com/Jodu555/Node-CommandManager.git"
 	},
-	"keywords": [],
+	"keywords": [
+		"api",
+		"cli",
+		"command",
+		"CommandManager",
+		"manager"
+	],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
