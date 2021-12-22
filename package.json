@@ -18,5 +18,8 @@
 	"bugs": {
 		"url": "https://github.com/Jodu555/Node-CommandManager/issues"
 	},
-	"homepage": "https://github.com/Jodu555/Node-CommandManager#readme"
+	"homepage": "https://github.com/Jodu555/Node-CommandManager#readme",
+	"dependencies": {
+		"readline": "^1.3.0"
+	}
 }
