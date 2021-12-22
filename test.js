@@ -4,7 +4,8 @@ const commandManager = CommandManager.createCommandManager(process.stdin, proces
 
 require('./test2');
 
-commandManager.registerCommand(new Command('info', 'info', 'Displays the info!', async () => {
+commandManager.registerCommand(new Command('info', 'info', 'Displays the info!', (command, [...args], scope) => {
+    //Do Some code here
     return ['INFO', 'INFO', 'INFO']
 }));
 
