@@ -28,6 +28,8 @@ commandManager.registerCommand(new Command('addUser', 'addUser <Name> <Street> [
     // command: The initial command: addUser
     // args: The Arguments including the command at index 0
     // scope: The Scope this command was run can either be user or system
+
+    
     //Do your code here
 
     //Return whatever the command should output
