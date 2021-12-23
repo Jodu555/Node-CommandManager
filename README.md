@@ -48,3 +48,7 @@ const { CommandManager, Command } = require('./src/index');
 const commandManager = CommandManager.getCommandManager();
 commandManager. //some other function like registerCommand
 ```
+
+## Todo
+* [ ] Implement so you can call a command with code
+  * [ ] Implement the System / Code scope
