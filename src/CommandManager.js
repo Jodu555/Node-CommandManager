@@ -23,7 +23,7 @@ class CommandManager {
         this.getAllCommandWithoutAliases();
     }
 
-    callCommand(line, scope) {
+    callCommand(line, scope = 'SYSTEM') {
         let backmessage;
         const command = line.split(' ')[0].toLowerCase().trim();
         if (this.commands.has(command))
