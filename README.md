@@ -58,5 +58,5 @@ commandManager.callCommand('command argu ments', 'YOUR scope! Default: System');
 
 
 ## Todo
-* [ ] Implement so you can call a command with code
-  * [ ] Implement the System / Code scope
+* [x] Implement so you can call a command with code
+  * [x] Implement the System / Code scope
