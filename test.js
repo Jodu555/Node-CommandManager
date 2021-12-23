@@ -10,3 +10,5 @@ commandManager.registerCommand(new Command('info', 'info', 'Displays the info!',
     return ['INFO', 'INFO', 'INFO']
 }));
 
+commandManager.callCommand('info hallo123 123', 'SYSTEM');
+
