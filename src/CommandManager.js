@@ -14,25 +14,28 @@ class CommandManager {
         const cli = require('readline').createInterface(this.streamIn, this.streamOut);
         this.fixStdoutFor(cli);
         cli.setPrompt("> ", 2);
-        let backmessage;
         cli.on('line', (line) => {
-            const command = line.split(' ')[0].toLowerCase().trim();
-            if (this.commands.has(command))
-                backmessage = this.commands.get(command).callback(command, line.split(' '), 'USER');
-            if (backmessage) {
-                Promise.resolve(backmessage).then((message) => {
-                    if (Array.isArray(message))
-                        message.forEach(msg => console.log(msg));
-                    if (!Array.isArray(message))
-                        console.log(message);
-                })
-
-            }
+            this.callCommand(line, 'USER');
             cli.prompt();
         });
         cli.prompt();
         this.initializeDefaultCommands();
         this.getAllCommandWithoutAliases();
+    }
+
+    callCommand(line, scope) {
+        let backmessage;
+        const command = line.split(' ')[0].toLowerCase().trim();
+        if (this.commands.has(command))
+            backmessage = this.commands.get(command).callback(command, line.split(' '), scope);
+        if (backmessage) {
+            Promise.resolve(backmessage).then((message) => {
+                if (Array.isArray(message))
+                    message.forEach(msg => console.log(msg));
+                if (!Array.isArray(message))
+                    console.log(message);
+            })
+        }
     }
 
     getAllCommandWithoutAliases() {
