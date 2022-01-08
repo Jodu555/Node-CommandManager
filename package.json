@@ -2,7 +2,7 @@
 	"name": "@jodu555/commandmanager",
 	"version": "1.1.0",
 	"description": "A Simple Command Manager API in NodeJS",
-	"main": "index.js",
+	"main": "src/index.js",
 	"scripts": {
 		"start": "node src/index.js",
 		"dev": "nodemon src/index.js",

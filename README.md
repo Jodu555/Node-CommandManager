@@ -15,7 +15,7 @@ Then the end user can type these into the console to trigger certain code
 ### Create a command manager
 
 ```javascript
-const { CommandManager, Command } = require('@jodu555/command-manager');
+const { CommandManager, Command } = require('@jodu555/commandmanager');
 //                                              Pass here the standard pipe you want to use
 const commandManager = CommandManager.createCommandManager(process.stdin, process.stdout);
 ```
@@ -43,7 +43,7 @@ commandManager.registerCommand(new Command('addUser', 'addUser <Name> <Street> [
 ### Work with the commandManager in other classes | PUT this before you acces the commandManager anywhere
 
 ```javascript
-const { CommandManager, Command } = require('./src/index');
+const { CommandManager, Command } = require('@jodu555/commandmanager');
 
 const commandManager = CommandManager.getCommandManager();
 commandManager. //some other function like registerCommand
