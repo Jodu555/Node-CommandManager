@@ -1,14 +1,15 @@
 # Node-CommandManager
-A Simple Command Manager API in NodeJS! 
-In which you can define Commands to do certain things! 
+
+A Simple Command Manager API in NodeJS!
+In which you can define Commands to do certain things!
 Then the end user can type these into the console to trigger certain code
 
 ## Features
 
-  * Handles all registered Commands
-  * Handles Async Code execution in commands
-  * Automatically implements a help command
-  * Nice Developer Experience
+- Handles all registered Commands
+- Handles Async Code execution in commands
+- Automatically implements a help command
+- Nice Developer Experience
 
 ## Usage
 
@@ -24,20 +25,39 @@ const commandManager = CommandManager.createCommandManager(process.stdin, proces
 
 ```javascript
 //                                        the command  A Usage Info with arguments       A Description what the command does
-commandManager.registerCommand(new Command('addUser', 'addUser <Name> <Street> [City]', 'Adds a user', (command, [...args], scope) => {
-    // command: The initial command: addUser
-    // args: The Arguments including the command at index 0
-    // scope: The Scope this command was run can either be user or system
+commandManager.registerCommand(
+	new Command(
+		'addUser',
+		'addUser <Name> <Street> [City]',
+		'Adds a user',
+		(command, [...args], scope) => {
+			// command: The initial command: addUser
+			// args: The Arguments including the command at index 0
+			// scope: The Scope this command was run can either be user or system
 
-    
-    //Do your code here
+			//Do your code here
 
-    //Return whatever the command should output
-    //Can be an Array
-    return ['User Added:', '', 'Name: NAME'];
-    //Or just a String
-    return 'User Added Successfully';
-}));
+			//Return whatever the command should output
+			//Can be an Array
+			return ['User Added:', '', 'Name: NAME'];
+			//Or just a String
+			return 'User Added Successfully';
+		}
+	)
+);
+```
+
+## Alias Support
+
+```javascript
+commandManager.registerCommand(
+	new Command(
+		['here', 'you', 'can', 'put', 'all', 'the', 'aliases'],
+		'Usage',
+		'Description',
+		(command, [...args], scope) => {}
+	)
+);
 ```
 
 ### Work with the commandManager in other classes | PUT this before you acces the commandManager anywhere
@@ -55,12 +75,11 @@ commandManager. //some other function like registerCommand
 commandManager.callCommand('command argu ments', 'YOUR scope! Default: System');
 ```
 
-
-
 ## Todo
-* [x] Implement so you can call a command with code
-  * [x] Implement the System / Code scope 
-* [ ] Implement a Command Alias
-  * [ ] Make the one alias to multiple aliases
-  * [ ] Implement the alias usage into the Readme
-* [ ] Implement a shutdown hook to maybe cleanup some commands
+
+- [x] Implement so you can call a command with code
+  - [x] Implement the System / Code scope
+- [ ] Implement a Command Alias
+  - [ ] Make the one alias to multiple aliases
+  - [ ] Implement the alias usage into the Readme
+- [ ] Implement a shutdown hook to maybe cleanup some commands
