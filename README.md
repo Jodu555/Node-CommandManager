@@ -59,5 +59,7 @@ commandManager.callCommand('command argu ments', 'YOUR scope! Default: System');
 
 ## Todo
 * [x] Implement so you can call a command with code
-  * [x] Implement the System / Code scope
+  * [x] Implement the System / Code scope 
+* [ ] Implement a Command Alias
+  * [ ] Make the one alias to multiple aliases
 * [ ] Implement a shutdown hook to maybe cleanup some commands
