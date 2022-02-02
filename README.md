@@ -79,7 +79,7 @@ commandManager.callCommand('command argu ments', 'YOUR scope! Default: System');
 
 - [x] Implement so you can call a command with code
   - [x] Implement the System / Code scope
-- [ ] Implement a Command Alias
-  - [ ] Make the one alias to multiple aliases
-  - [ ] Implement the alias usage into the Readme
+- [x] Implement a Command Alias
+  - [x] Make the one alias to multiple aliases
+  - [x] Implement the alias usage into the Readme
 - [ ] Implement a shutdown hook to maybe cleanup some commands
