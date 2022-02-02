@@ -24,12 +24,11 @@ const commandManager = CommandManager.createCommandManager(process.stdin, proces
 ### Create Commands
 
 ```javascript
-//                                        the command  A Usage Info with arguments       A Description what the command does
 commandManager.registerCommand(
 	new Command(
-		'addUser',
-		'addUser <Name> <Street> [City]',
-		'Adds a user',
+		'addUser', // The Command
+		'addUser <Name> <Street> [City]', // A Usage Info with arguments
+		'Adds a user', // A Description what the command does
 		(command, [...args], scope) => {
 			// command: The initial command: addUser
 			// args: The Arguments including the command at index 0
