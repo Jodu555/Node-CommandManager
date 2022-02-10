@@ -12,22 +12,41 @@
 
 // commandManager.callCommand('info hallo123 123');
 
+
 const sleep = time => new Promise((resolve, reject) => setTimeout(() => resolve(), time));
 
+class Writer {
+    constructor(stdout) {
 
-async function run(params) {
-    for (let i = 0; i < 100; i += 10) {
-        await sleep(500);
-        printProgress(i)
     }
+    displayProgress(progress, max, type) {
+        if (type == 0) {
+            this.deepSameLineClear(progress + '%');
+        } else if (type == 1) {
+
+        }
+    }
+    deepSameLineClear(data) {
+        process.stdout.clearLine();
+        process.stdout.cursorTo(0);
+        process.stdout.write(data);
+    }
+    end() {
+        process.stdout.write('\n');
+    }
+}
+
+
+const writer = new Writer();
+async function run(params) {
+    for (let i = 0; i < 101; i += 10) {
+        await sleep(500);
+        writer.displayProgress(i, 100, 0);
+    }
+    writer.end();
     console.log('Hallo2');
 }
 
-function printProgress(progress) {
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
-    process.stdout.write(progress + '%');
-}
 
 run();
 console.log('Hallo');
