@@ -7,6 +7,7 @@ class CommandManager {
         this.streamIn = streamIn;
         this.streamOut = streamOut;
         this.commands = new Map();
+        this.writer = new Writer(this.streamOut);
         this.init();
     }
 
@@ -21,6 +22,10 @@ class CommandManager {
         cli.prompt();
         this.initializeDefaultCommands();
         this.getAllCommandWithoutAliases();
+    }
+
+    getWriter() {
+        return this.writer;
     }
 
     callCommand(line, scope = 'SYSTEM') {
