@@ -22,7 +22,7 @@ class CommandManager {
         });
         cli.prompt();
         this.initializeDefaultCommands();
-        this.getAllCommandWithoutAliases();
+        this.getAllCommandsWithoutAliases();
     }
 
     getWriter() {
