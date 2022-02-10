@@ -44,7 +44,7 @@ class CommandManager {
         }
     }
 
-    getAllCommandWithoutAliases() {
+    getAllCommandsWithoutAliases() {
         const validIds = [];
         const finalCommands = [];
         this.commands.forEach(e1 => {
@@ -60,7 +60,7 @@ class CommandManager {
         this.registerCommand(new Command('help', 'help', 'Description', (command, args, sender) => {
             console.log('------------------- HELP -------------------');
             console.log(' ');
-            this.getAllCommandWithoutAliases().forEach(command => {
+            this.getAllCommandsWithoutAliases().forEach(command => {
                 console.log('=> ' + (Array.isArray(command.command) ? command.command.join(', ') : command.command) + ' : ' + command.usage + ' : ' + command.description);
             });
             console.log(' ');

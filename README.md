@@ -74,6 +74,13 @@ commandManager. //some other function like registerCommand
 commandManager.callCommand('command argu ments', 'YOUR scope! Default: System');
 ```
 
+## Projects using this API
+
+<!--- [Monitoring-System](https://github.com/Jodu555/MonitoringSystem-Slave)!-->
+
+- [Backup-System](https://github.com/Jodu555/BackupSystem)
+- [Auto-Deployer](https://github.com/Jodu555/Auto-Deployer)
+
 ## Todo
 
 - [x] Implement so you can call a command with code
