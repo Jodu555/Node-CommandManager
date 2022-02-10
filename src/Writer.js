@@ -2,7 +2,7 @@ class Writer {
     constructor(stdout) {
         this.stdout = stdout;
     }
-    displayProgress(progress, max, type, steps = 1, symbols = null) {
+    displayProgress(progress, max, type, steps = 1, symbols = null, appender) {
         if (!symbols) symbols = {
             leftBorder: '[',
             rightBorder: ']',
@@ -20,6 +20,7 @@ class Writer {
             str += Array(chars - width).join(symbols.notLoaded);
             str += ' ' + symbols.rightBorder;
             str += ' ' + progress + '%';
+            str += '  ' + appender;
             this.deepSameLineClear(str);
         }
     }
