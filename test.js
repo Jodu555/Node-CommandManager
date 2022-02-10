@@ -19,11 +19,25 @@ class Writer {
     constructor(stdout) {
 
     }
-    displayProgress(progress, max, type) {
+    displayProgress(progress, max, type, steps = 1, symbols = null) {
+        if (!symbols) symbols = {
+            leftBorder: '[',
+            rightBorder: ']',
+            loaded: '#',
+            notLoaded: '-'
+        };
+
         if (type == 0) {
             this.deepSameLineClear(progress + '%');
         } else if (type == 1) {
-
+            let str = symbols.leftBorder + ' ';
+            const chars = max / steps;
+            const width = Math.floor(progress / steps);
+            str += Array(width).join(symbols.loaded);
+            str += Array(chars - width).join(symbols.notLoaded);
+            str += ' ' + symbols.rightBorder;
+            str += ' ' + progress + '%';
+            this.deepSameLineClear(str);
         }
     }
     deepSameLineClear(data) {
@@ -39,9 +53,9 @@ class Writer {
 
 const writer = new Writer();
 async function run(params) {
-    for (let i = 0; i < 101; i += 10) {
-        await sleep(500);
-        writer.displayProgress(i, 100, 0);
+    for (let i = 0; i < 101; i += 1) {
+        await sleep(50);
+        writer.displayProgress(i, 100, 1, 2);
     }
     writer.end();
     console.log('Hallo2');
