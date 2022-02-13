@@ -23,6 +23,10 @@ class CommandManager {
         cli.prompt();
         this.initializeDefaultCommands();
         this.getAllCommandsWithoutAliases();
+
+        process.on('exit', () => {
+            //TODO: here put the shutdown hook for log files etc.
+        });
     }
 
     getWriter() {
