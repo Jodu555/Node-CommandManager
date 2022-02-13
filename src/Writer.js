@@ -2,7 +2,7 @@ class Writer {
     constructor(stdout) {
         this.stdout = stdout;
     }
-    displayProgress(progress, max, type, steps = 1, symbols = null, appender) {
+    displayProgress(progress, max, type, steps = 1, symbols = null, appender = '') {
         if (!symbols) symbols = {
             leftBorder: '[',
             rightBorder: ']',
