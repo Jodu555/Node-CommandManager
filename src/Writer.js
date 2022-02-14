@@ -26,11 +26,11 @@ class Writer {
     }
     deepSameLineClear(data, l = 0) {
         this.stdout.clearLine();
-        // if (l == 0)
-        this.stdout.moveCursor(0, l);
-        this.stdout.clearLine();
+        for (let i = 0; i < l; i++) {
+            this.stdout.moveCursor(0, i);
+            this.stdout.clearLine(1);
+        }
         this.stdout.cursorTo(0);
-        this.stdout.clearLine();
         this.stdout.write(data);
     }
     end() {
