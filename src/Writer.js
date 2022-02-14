@@ -24,9 +24,13 @@ class Writer {
             this.deepSameLineClear(str);
         }
     }
-    deepSameLineClear(data) {
+    deepSameLineClear(data, l = 0) {
+        this.stdout.clearLine();
+        // if (l == 0)
+        this.stdout.moveCursor(0, l);
         this.stdout.clearLine();
         this.stdout.cursorTo(0);
+        this.stdout.clearLine();
         this.stdout.write(data);
     }
     end() {

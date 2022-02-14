@@ -16,14 +16,25 @@ const sleep = time => new Promise((resolve, reject) => setTimeout(() => resolve(
 
 const writer = commandManager.getWriter();
 async function run(params) {
-    for (let i = 0; i < 101; i += 1) {
-        await sleep(50);
-        writer.displayProgress(i, 100, 1, 2);
-    }
-    writer.end();
-    console.log('Hallo2');
+    // for (let i = 0; i < 101; i += 1) {
+    //     await sleep(50);
+    //     writer.displayProgress(i, 100, 1, 2);
+    // }
+    // writer.end();
+    // console.log('Hallo2');
+
+    writer.deepSameLineClear('Hallo 123');
+    await sleep(1000);
+    writer.deepSameLineClear('Hallo 456');
+    await sleep(1000);
+    writer.deepSameLineClear(`Hallo 456\nTEST 123`);
+    await sleep(1000);
+    writer.deepSameLineClear(`Hallo 456\nTEST 456`, 2);
 }
 
 
 run();
-console.log('Hallo');
+// console.log('Hallo');
+
+
+
