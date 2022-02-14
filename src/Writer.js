@@ -26,12 +26,18 @@ class Writer {
     }
     deepSameLineClear(data, l = 0) {
         this.stdout.clearLine();
-        for (let i = 0; i < l; i++) {
-            this.stdout.moveCursor(0, i);
-            this.stdout.clearLine(1);
-        }
+        this.clearLines(l)
         this.stdout.cursorTo(0);
         this.stdout.write(data);
+    }
+
+    clearLines(n) {
+        for (let i = 0; i < n; i++) {
+            const y = i === 0 ? null : -1
+            process.stdout.moveCursor(0, y)
+            process.stdout.clearLine(1)
+        }
+        process.stdout.cursorTo(0)
     }
     end() {
         this.stdout.write('\n');
