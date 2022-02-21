@@ -83,6 +83,7 @@ commandManager.callCommand('command argu ments', 'YOUR scope! Default: System');
 
 ## Todo
 
+- [ ] Document all the system with jsdoc so the usage gets nicer
 - [x] Implement so you can call a command with code
   - [x] Implement the System / Code scope
 - [x] Implement a Command Alias
