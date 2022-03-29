@@ -59,6 +59,12 @@ commandManager.registerCommand(
 );
 ```
 
+## Unregister Commands
+
+```javascript
+commandManager.unregisterCommand('clear'); // Here you can put the command name or any alias
+```
+
 ### Work with the commandManager in other classes | PUT this before you acces the commandManager anywhere
 
 ```javascript
@@ -72,6 +78,18 @@ commandManager. //some other function like registerCommand
 
 ```javascript
 commandManager.callCommand('command argu ments', 'YOUR scope! Default: System');
+```
+
+### More To Know
+
+```javascript
+//If you dont want the two default commands: "help" & "clear" then you can call:
+
+commandManager.disableDefaultCommands();
+
+//If you now decide you want them back use:
+
+commandManager.initializeDefaultCommands();
 ```
 
 ## Projects using this API

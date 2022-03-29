@@ -11,12 +11,6 @@ commandManager.registerCommand(new Command('info', 'info', 'Displays the info!',
 }));
 
 
-commandManager.registerCommand(new Command(['clear', 'c'], 'Clear', 'Clears the complete Node console!', (command, [...args], scope) => {
-    console.log('\033[2J');
-}));
-
-commandManager.unregisterCommand('clear');
-
 const sleep = time => new Promise((resolve, reject) => setTimeout(() => resolve(), time));
 
 

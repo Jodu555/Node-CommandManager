@@ -70,6 +70,14 @@ class CommandManager {
             console.log(' ');
             console.log('------------------- HELP -------------------');
         }));
+
+        this.registerCommand(new Command(['clear', 'c'], 'Clear', 'Clears the complete Node console!', (command, [...args], scope) => {
+            console.log('\033[2J');
+        }));
+    }
+    disableDefaultCommands() {
+        this.unregisterCommand('help');
+        this.unregisterCommand('clear');
     }
 
     fixStdoutFor(cli) {
