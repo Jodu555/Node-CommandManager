@@ -15,6 +15,8 @@ commandManager.registerCommand(new Command(['clear', 'c'], 'Clear', 'Clears the 
     console.log('\033[2J');
 }));
 
+commandManager.unregisterCommand('clear');
+
 const sleep = time => new Promise((resolve, reject) => setTimeout(() => resolve(), time));
 
 

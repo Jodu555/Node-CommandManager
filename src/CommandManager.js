@@ -69,7 +69,7 @@ class CommandManager {
             });
             console.log(' ');
             console.log('------------------- HELP -------------------');
-        }))
+        }));
     }
 
     fixStdoutFor(cli) {
@@ -87,11 +87,38 @@ class CommandManager {
         process.__defineGetter__('stdout', function () { return newStdout; });
     }
 
+    /**
+     * @param  {Command} command
+     */
     registerCommand(command) {
         if (typeof command.command === 'string')
             this.commands.set(command.command.toLowerCase(), command);
         if (Array.isArray(command.command))
             command.command.forEach(commands => this.commands.set(commands.toLowerCase(), command));
+    }
+    /**
+     * @param  {String} command
+     */
+    unregisterCommand(command) {
+        let deletionID;
+        this.commands.forEach((v, k) => {
+            if (command.toLowerCase() == k.toLowerCase()) {
+                deletionID = v.ID;
+            }
+        });
+        this.deleteCommand(Number(deletionID));
+    }
+    /**
+     * @param  {Number} ID
+     */
+    deleteCommand(ID) {
+        const temp = new Map();
+        this.commands.forEach((v, k) => {
+            if (v.ID != ID) {
+                temp.set(k, v);
+            }
+        });
+        this.commands = temp;
     }
 }
 
