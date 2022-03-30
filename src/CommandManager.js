@@ -72,7 +72,7 @@ class CommandManager {
         }));
 
         this.registerCommand(new Command(['clear', 'c'], 'Clear', 'Clears the complete Node console!', (command, [...args], scope) => {
-            console.log('\033[2J');
+            console.log('\x1Bc');
         }));
     }
     disableDefaultCommands() {
