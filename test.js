@@ -28,8 +28,9 @@ async function run(params) {
     // writer.deepSameLineClear('Hallo 456');
     // await sleep(1000);
     // writer.deepSameLineClear(`Hallo 123.2\nTEST 123.2`);
-    // await sleep(1000);
+    // await sleep(2000);
     // writer.deepSameLineClear(`Hallo 456.2\nTEST 456.2`, 2);
+    // await sleep(200);
     // writer.end();
 }
 

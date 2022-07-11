@@ -20,6 +20,11 @@ class CommandManager {
             this.callCommand(line, 'USER');
             cli.prompt();
         });
+
+        // this.streamIn.on("keypress", (...args) => {
+        //     console.log("keypress", args);
+        // });
+
         cli.prompt();
         this.initializeDefaultCommands();
         this.getAllCommandsWithoutAliases();
