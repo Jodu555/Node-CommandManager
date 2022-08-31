@@ -8,24 +8,25 @@ class CommandManager {
         this.streamIn = streamIn;
         this.streamOut = streamOut;
         this.commands = new Map();
-        this.writer = new Writer(this.streamOut);
+        this.cli = null;
         this.init();
+        this.writer = new Writer(this, this.streamOut);
     }
 
     init() {
-        const cli = require('readline').createInterface(this.streamIn, this.streamOut);
-        this.fixStdoutFor(cli);
-        cli.setPrompt("> ", 2);
-        cli.on('line', (line) => {
+        this.cli = require('readline').createInterface(this.streamIn, this.streamOut);
+        this.fixStdoutFor(this.cli);
+        this.cli.setPrompt("> ", 2);
+        this.cli.on('line', (line) => {
             this.callCommand(line, 'USER');
-            cli.prompt();
+            this.cli.prompt();
         });
 
         // this.streamIn.on("keypress", (...args) => {
         //     console.log("keypress", args);
         // });
 
-        cli.prompt();
+        this.cli.prompt();
         this.initializeDefaultCommands();
         this.getAllCommandsWithoutAliases();
 
@@ -34,10 +35,18 @@ class CommandManager {
         });
     }
 
+    refresh() {
+        this.cli.setPrompt("> ", 2);
+        this.cli.prompt();
+    }
+
     getWriter() {
         return this.writer;
     }
-
+    /**
+     * @param  {String} line the command line you want to call
+     * @param  {String} scope='SYSTEM' the scope of the command
+     */
     callCommand(line, scope = 'SYSTEM') {
         let backmessage;
         const command = line.split(' ')[0].toLowerCase().trim();
@@ -64,7 +73,9 @@ class CommandManager {
         });
         return finalCommands;
     }
-
+    /**
+     * registers default commands, as help and clear
+     */
     initializeDefaultCommands() {
         this.registerCommand(new Command('help', 'help', 'Description', (command, args, sender) => {
             console.log('------------------- HELP -------------------');
@@ -80,6 +91,9 @@ class CommandManager {
             console.log('\x1Bc');
         }));
     }
+    /**
+     * disables default commands, as help and clear
+     */
     disableDefaultCommands() {
         this.unregisterCommand('help');
         this.unregisterCommand('clear');
@@ -147,4 +161,5 @@ function getCommandManager() {
 module.exports = {
     createCommandManager,
     getCommandManager,
+    CommandManager
 };

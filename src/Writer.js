@@ -1,5 +1,14 @@
+const { CommandManager } = require("./CommandManager");
+
+
+
 class Writer {
-    constructor(stdout) {
+    /**
+     * @param  {CommandManager} commandManager
+     * @param  {Any} stdout
+     */
+    constructor(commandManager, stdout) {
+        this.commandManager = commandManager;
         this.stdout = stdout;
     }
     displayProgress(progress, max, type, steps = 1, symbols = null, appender = '') {
@@ -34,13 +43,14 @@ class Writer {
     clearLines(n) {
         for (let i = 0; i < n; i++) {
             const y = i === 0 ? null : -1
-            process.stdout.moveCursor(0, y)
-            process.stdout.clearLine(1)
+            this.stdout.moveCursor(0, y)
+            this.stdout.clearLine(1)
         }
-        process.stdout.cursorTo(0)
+        this.stdout.cursorTo(0)
     }
     end() {
         this.stdout.write('\n');
+        this.commandManager.refresh();
     }
 }
 
