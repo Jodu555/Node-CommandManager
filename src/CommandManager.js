@@ -40,6 +40,9 @@ class CommandManager {
         this.cli.prompt();
     }
 
+    /**
+     * @returns {Writer}
+     */
     getWriter() {
         return this.writer;
     }

@@ -18,7 +18,7 @@ const writer = commandManager.getWriter();
 async function run(params) {
     for (let i = 0; i < 101; i += 1) {
         await sleep(20);
-        writer.displayProgress(i, 100, 1, 2);
+        writer.displayProgress(i, 100, 0, 2);
     }
     writer.end();
     console.log('Hallo2');
