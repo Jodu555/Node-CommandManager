@@ -152,11 +152,16 @@ class CommandManager {
     }
 }
 
+/**
+ * @returns {CommandManager}
+ */
 function createCommandManager(streamIn, streamOut) {
     this.commandManager = new CommandManager(streamIn, streamOut);
     return this.commandManager;
 }
-
+/**
+ * @returns {CommandManager}
+ */
 function getCommandManager() {
     return this.commandManager;
 }
