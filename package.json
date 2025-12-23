@@ -3,6 +3,7 @@
 	"version": "1.5.3",
 	"description": "A Simple Command Manager API in NodeJS",
 	"main": "src/index.js",
+	"types": "src/index.d.ts",
 	"scripts": {
 		"start": "node src/index.js",
 		"dev": "nodemon src/index.js",
