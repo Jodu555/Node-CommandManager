@@ -1,6 +1,6 @@
 {
 	"name": "@jodu555/commandmanager",
-	"version": "1.5.3",
+	"version": "1.5.4",
 	"description": "A Simple Command Manager API in NodeJS",
 	"main": "src/index.js",
 	"types": "src/index.d.ts",
